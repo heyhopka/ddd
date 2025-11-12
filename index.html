@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Памятка по HTML</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0 20px;
+      background: #f7f9fc;
+      color: #222;
+    }
+    header, footer {
+      background: #0d6efd;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    section {
+      background: #fff;
+      margin: 15px 0;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    }
+    code {
+      background: #eef;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      background: #eef;
+      padding: 8px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    h2 {
+      color: #0d6efd;
+      border-bottom: 2px solid #0d6efd;
+      padding-bottom: 4px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Памятка по HTML</h1>
+  <p>Основные теги и примеры для начинающих</p>
+</header>
+
+<section>
+  <h2>1. Основная структура страницы</h2>
+  <pre>
+&lt;!doctype html&gt;
+&lt;html lang="ru"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Название страницы&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Контент страницы
+  &lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+</section>
+
+<section>
+  <h2>2. Заголовки и текст</h2>
+  <p><strong>Пример:</strong></p>
+  <h1>Это H1</h1>
+  <h2>Это H2</h2>
+  <h3>Это H3</h3>
+  <p>Обычный абзац текста с <strong>жирным</strong> и <em>курсивом</em>.</p>
+  <p>Перенос строки делается с тегом <code>&lt;br&gt;</code>.</p>
+</section>
+
+<section>
+  <h2>3. Списки</h2>
+  <p><strong>Маркированный список:</strong></p>
+  <ul>
+    <li>Яблоко</li>
+    <li>Банан</li>
+    <li>Апельсин</li>
+  </ul>
+
+  <p><strong>Нумерованный список:</strong></p>
+  <ol>
+    <li>Первый шаг</li>
+    <li>Второй шаг</li>
+    <li>Третий шаг</li>
+  </ol>
+</section>
+
+<section>
+  <h2>4. Ссылки и изображения</h2>
+  <p><a href="https://example.com" target="_blank">Это ссылка на сайт Example</a></p>
+  <p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/HTML5_logo_and_wordmark.svg"
+          alt="Логотип HTML5" width="100"></p>
+  <pre>
+&lt;a href="https://example.com"&gt;Ссылка&lt;/a&gt;
+&lt;img src="cat.jpg" alt="Кошка"&gt;
+  </pre>
+</section>
+
+<section>
+  <h2>5. Таблица</h2>
+  <table border="1" cellpadding="5">
+    <tr><th>Имя</th><th>Возраст</th></tr>
+    <tr><td>Анна</td><td>22</td></tr>
+    <tr><td>Иван</td><td>25</td></tr>
+  </table>
+  <pre>
+&lt;table border="1"&gt;
+  &lt;tr&gt;&lt;th&gt;Имя&lt;/th&gt;&lt;th&gt;Возраст&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Анна&lt;/td&gt;&lt;td&gt;22&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+  </pre>
+</section>
+
+<section>
+  <h2>6. Формы</h2>
+  <form>
+    <label>Имя: <input type="text" placeholder="Введите имя"></label><br><br>
+    <label>Пароль: <input type="password"></label><br><br>
+    <label><input type="checkbox"> Согласен с условиями</label><br><br>
+    <button type="submit">Отправить</button>
+  </form>
+  <pre>
+&lt;form&gt;
+  &lt;input type="text" placeholder="Имя"&gt;
+  &lt;input type="password"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;button&gt;Отправить&lt;/button&gt;
+&lt;/form&gt;
+  </pre>
+</section>
+
+<section>
+  <h2>7. Медиа</h2>
+  <p>Аудио:</p>
+  <audio controls>
+    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+  </audio>
+  <p>Видео:</p>
+  <video width="320" controls>
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+  </video>
+</section>
+
+<section>
+  <h2>8. Семантические теги</h2>
+  <p>Используй их для структуры:</p>
+  <ul>
+    <li><code>&lt;header&gt;</code> — шапка страницы</li>
+    <li><code>&lt;nav&gt;</code> — меню</li>
+    <li><code>&lt;main&gt;</code> — основной контент</li>
+    <li><code>&lt;section&gt;</code> — раздел</li>
+    <li><code>&lt;article&gt;</code> — самостоятельная статья</li>
+    <li><code>&lt;footer&gt;</code> — подвал</li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2025. Учебная памятка по HTML.</p>
+</footer>
+
+</body>
+</html>
