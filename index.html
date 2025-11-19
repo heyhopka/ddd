@@ -3,9 +3,417 @@
 <head>
   <meta charset="utf-8">
   <title>Памятка по HTML и CSS</title>
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <style>
+        
+    :root {
+      /* Пастельная палитра */
+      --yellow: #FDFE93;
+      --green:  #C9F574;
+      --pink:   #E39ACD;
+      --purple: #A57BD8;
+
+      --bg-main:   #fffdf7;
+      --bg-card:   #ffffff;
+      --text-main: #1f2933;
+      --text-muted:#6b7280;
+      --border-subtle: #e5e7eb;
+      --code-bg:   #f4f4ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Roboto", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at 0 0, rgba(249, 250, 158, 0.4), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(201, 245, 116, 0.35), transparent 55%),
+        linear-gradient(180deg, #fffdf7 0, #fbf5ff 100%);
+      color: var(--text-main);
+      font-size: 17px;
+    }
+
+    .page-wrapper {
+      max-width: 1240px;
+      margin: 0 auto 32px;
+      padding: 0 26px 24px;
+    }
+
+    header, footer {
+      background: linear-gradient(135deg, var(--yellow), var(--pink));
+      color: #312e81;
+      text-align: center;
+      padding: 18px 16px;
+      border-radius: 20px;
+      margin: 18px 0 22px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before,
+    header::after {
+      position: absolute;
+      font-size: 34px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    header::before {
+      content: "🎮";
+      left: 10px;
+      top: 4px;
+    }
+
+    header::after {
+      content: "🕹️";
+      right: 12px;
+      bottom: 4px;
+    }
+
+    header h1 {
+      margin: 4px 0 2px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 0.96rem;
+    }
+
+    nav {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    nav a {
+      color: #1f2933;
+      text-decoration: none;
+      margin: 3px 4px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(255, 255, 255, 0.8);
+      display: inline-block;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    nav a:hover {
+      background: #fef9c3;
+      transform: translateY(-1px);
+    }
+
+    main {
+      margin-top: 12px;
+    }
+
+    section {
+      background: var(--bg-card);
+      margin: 20px 0;
+      padding: 18px 22px 22px;
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .section-label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      color: #3f6212;
+      font-weight: 700;
+      display: inline-block;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: #a3e635;
+    }
+
+    h3 {
+      color: #4b5563;
+      margin: 16px 0 6px;
+      font-size: 1.05rem;
+    }
+
+    p {
+      color: var(--text-main);
+      font-size: 1rem;
+      line-height: 1.65;
+      margin: 6px 0;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    code {
+      background: #e5e7ff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, "Fira Code", monospace;
+      font-size: 0.9em;
+      color: #111827;
+      border: 1px solid #c7d2fe;
+    }
+
+    pre {
+      background: var(--code-bg);
+      color: #111827;
+      padding: 12px;
+      border-radius: 14px;
+      overflow-x: auto;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin-top: 8px;
+      border: 1px solid #c7d2fe;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+      border-radius: 0;
+      border: none;
+      color: inherit;
+    }
+
+    .code-demo {
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px dashed #e5e7eb;
+      background: #ffffff;
+      font-size: 0.98rem;
+    }
+
+    .code-demo-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .note {
+      background: #fefce8;
+      border-left: 4px solid #a3e635;
+      padding: 8px 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .example-box {
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      background: #fef9c3;
+      border: 1px solid #fde68a;
+      font-size: 0.95rem;
+    }
+
+    blockquote {
+      margin: 10px 0;
+      padding: 8px 12px;
+      border-left: 4px solid #c4b5fd;
+      background: #f5f3ff;
+      border-radius: 10px;
+      font-style: italic;
+      color: #374151;
+    }
+
+    blockquote small {
+      font-style: normal;
+      color: #6b7280;
+    }
+
+    mark {
+      background: #fef08a;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 6px 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f4ff;
+      color: #374151;
+    }
+
+    td {
+      background: #ffffff;
+    }
+
+    .tag-cards {
+      margin-top: 8px;
+    }
+
+    .tag-card {
+      display: inline-block;
+      vertical-align: top;
+      width: 240px;
+      max-width: 100%;
+      background: #faf5ff;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      padding: 8px 10px 10px;
+      margin: 4px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      position: relative;
+    }
+
+    .tag-card::before {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      font-size: 1.2rem;
+      opacity: 0.4;
+    }
+
+    #tags .tag-card:nth-child(1)::before { content: "🎮"; }
+    #tags .tag-card:nth-child(2)::before { content: "🧱"; }
+    #tags .tag-card:nth-child(3)::before { content: "🗺️"; }
+    #tags .tag-card:nth-child(4)::before { content: "💬"; }
+
+    .tag-card strong {
+      color: #7c3aed;
+      font-size: 0.96rem;
+    }
+
+    .tag-card small {
+      display: block;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-size: 0.8rem;
+    }
+
+    .tag-card pre {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      background: #e5e7ff;
+      color: #111827;
+      border-radius: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: #fee2e2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    a {
+      color: #7c3aed;
+    }
+    a:hover {
+      color: #4b5563;
+    }
+
+    audio, video {
+      margin-top: 6px;
+      max-width: 100%;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+    }
+
+    input, select, button, textarea {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      color: var(--text-main);
+      border-radius: 8px;
+      padding: 6px 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    input::placeholder {
+      color: #9ca3af;
+    }
+
+    button {
+      cursor: pointer;
+      background: linear-gradient(135deg, #bef264, #f9739a);
+      border-color: #fb7185;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #a3e635, #f9739a);
+    }
+
+    fieldset {
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      padding: 10px 12px 12px;
+      background: #f9fafb;
+    }
+
+    legend {
+      padding: 0 6px;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    footer p {
+      margin: 4px 0;
+      font-size: 0.95rem;
+    }
+
+    </style>
+
+
+
 
 <div class="page-wrapper">
 <header>
