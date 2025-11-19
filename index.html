@@ -2,174 +2,698 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>Памятка по HTML</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0 20px;
-      background: #f7f9fc;
-      color: #222;
-    }
-    header, footer {
-      background: #0d6efd;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      border-radius: 8px;
-      margin: 10px 0;
-    }
-    section {
-      background: #fff;
-      margin: 15px 0;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 4px rgba(0,0,0,0.1);
-    }
-    code {
-      background: #eef;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: Consolas, monospace;
-    }
-    pre {
-      background: #eef;
-      padding: 8px;
-      border-radius: 6px;
-      overflow-x: auto;
-    }
-    h2 {
-      color: #0d6efd;
-      border-bottom: 2px solid #0d6efd;
-      padding-bottom: 4px;
-    }
-    ul {
-      margin-left: 20px;
-    }
-  </style>
+  <title>Памятка по HTML и CSS</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="page-wrapper">
 <header>
-  <h1>Памятка по HTML</h1>
-  <p>Основные теги и примеры для начинающих</p>
+  <h1>Памятка по HTML и CSS</h1>
+  <p><small>Основные теги, селекторы, комбинаторы и CSS-свойства на примерах из игр</small></p>
+  <nav>
+    <a href="#structure">Структура</a>
+    <a href="#text">Текст</a>
+    <a href="#tags">Теги</a>
+    <a href="#lists">Списки</a>
+    <a href="#links">Ссылки</a>
+    <a href="#table">Таблица</a>
+    <a href="#forms">Формы</a>
+    <a href="#media">Медиа</a>
+    <a href="#selectors">Селекторы</a>
+    <a href="#combinators">Комбинаторы</a>
+    <a href="#css-props">CSS-свойства</a>
+  </nav>
 </header>
 
-<section>
-  <h2>1. Основная структура страницы</h2>
-  <pre>
-&lt;!doctype html&gt;
+<main>
+
+<section id="structure">
+  <span class="section-label">раздел 1</span>
+  <h2>Основная структура HTML-страницы</h2>
+  <p>
+    Любая HTML-страница начинается с объявления типа документа <code>&lt;!doctype html&gt;</code>
+    и корневого элемента <code>&lt;html&gt;</code>. Можно представить, что это «игровой движок»,
+    внутри которого есть настройки (<code>&lt;head&gt;</code>) и сам уровень
+    (<code>&lt;body&gt;</code>), где уже «живут» блоки наподобие интерфейса из Minecraft или инвентаря из Stardew Valley.
+  </p>
+
+  <pre><code>&lt;!doctype html&gt;
 &lt;html lang="ru"&gt;
   &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
-    &lt;title&gt;Название страницы&lt;/title&gt;
+    &lt;title&gt;Экран выбора персонажа&lt;/title&gt;
   &lt;/head&gt;
+
   &lt;body&gt;
-    Контент страницы
+    &lt;h1&gt;Выберите героя для приключения&lt;/h1&gt;
+    &lt;p&gt;Например, маг как в Baldur's Gate или отважный шахтёр как в Minecraft.&lt;/p&gt;
   &lt;/body&gt;
-&lt;/html&gt;
-  </pre>
+&lt;/html&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <h1>Выберите героя для приключения</h1>
+    <p>Например, маг как в Baldur's Gate или отважный шахтёр как в Minecraft.</p>
+  </div>
+
+  <div class="note">
+    <strong>Важно:</strong> <code>&lt;meta charset="utf-8"&gt;</code> нужен, чтобы русские буквы
+    корректно отображались и имена вроде «Айзек» или «Деспот» не разваливались в символы.
+  </div>
 </section>
 
-<section>
-  <h2>2. Заголовки и текст</h2>
-  <p><strong>Пример:</strong></p>
-  <h1>Это H1</h1>
-  <h2>Это H2</h2>
-  <h3>Это H3</h3>
-  <p>Обычный абзац текста с <strong>жирным</strong> и <em>курсивом</em>.</p>
-  <p>Перенос строки делается с тегом <code>&lt;br&gt;</code>.</p>
+<section id="text">
+  <span class="section-label">раздел 2</span>
+  <h2>Заголовки и текст</h2>
+
+  <h3>Заголовки H1–H6</h3>
+  <p>
+    Заголовки можно воспринимать как уровни меню в игре: главный логотип, названия разделов,
+    подпункты. <code>&lt;h1&gt;</code> — главный тайтл игры, дальше — <code>&lt;h2&gt;</code>,
+    <code>&lt;h3&gt;</code> и так далее до <code>&lt;h6&gt;</code>.
+  </p>
+  <pre><code>&lt;h1&gt;Гайд по выживанию в The Binding of Isaac&lt;/h1&gt;
+&lt;h2&gt;1. Основные типы комнат&lt;/h2&gt;
+&lt;h3&gt;1.1. Обычные комнаты&lt;/h3&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <h1>Гайд по выживанию в The Binding of Isaac</h1>
+    <h2>1. Основные типы комнат</h2>
+    <h3>1.1. Обычные комнаты</h3>
+  </div>
+
+  <h3>Текст, выделение, переносы</h3>
+  <p>
+    Для обычного текста используется тег <code>&lt;p&gt;</code>. Например, можно написать
+    описание билда в Baldur’s Gate 3 или пояснение к ферме в Stardew Valley.
+    <code>&lt;strong&gt;</code> — подчеркнуть важность, <code>&lt;em&gt;</code> — акцент.
+  </p>
+  <pre><code>&lt;p&gt;
+  Это &lt;strong&gt;важный билд мага&lt;/strong&gt; для Baldur's Gate 3,
+  а это &lt;em&gt;рекомендация для новичков&lt;/em&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;Перенос строки внутри текста&lt;br&gt;например, для списка бонусов.&lt;/p&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <p>
+      Это <strong>важный билд мага</strong> для Baldur's Gate 3,
+      а это <em>рекомендация для новичков</em>.
+    </p>
+    <p>Перенос строки внутри текста<br>например, для списка бонусов.</p>
+  </div>
+
+  <p>
+    Для подстрочных и надстрочных индексов используются <code>&lt;sub&gt;</code> и
+    <code>&lt;sup&gt;</code>. Можно, например, указать урон заклинания или уровень предмета.
+  </p>
+  <pre><code>&lt;p&gt;Урон заклинания: 2d6 + Int&lt;sup&gt;мод&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Зелье лечения уровня: H&lt;sub&gt;2&lt;/sub&gt;O + травы&lt;/p&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <p>Урон заклинания: 2d6 + Int<sup>мод</sup></p>
+    <p>Зелье лечения уровня: H<sub>2</sub>O + травы</p>
+  </div>
+
+  <h3>Цитаты и выделения</h3>
+  <pre><code>&lt;blockquote&gt;
+  «Не копай прямо под себя».
+  &lt;br&gt;&lt;small&gt;— каждый выживший игрок в Minecraft&lt;/small&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+  Тег &lt;mark&gt; подсвечивает подсказку:
+  &lt;mark&gt;всегда берите поливочную лейку в Stardew Valley&lt;/mark&gt;.
+&lt;/p&gt;</code></pre>
+
+  <blockquote>
+    «Не копай прямо под себя».  
+    <small>— каждый выживший игрок в Minecraft</small>
+  </blockquote>
+
+  <p>
+    Тег <code>&lt;mark&gt;</code> подсвечивает фразу, как важную подсказку в интерфейсе:
+    <mark>всегда берите поливочную лейку в Stardew Valley</mark>.
+  </p>
 </section>
 
-<section>
-  <h2>3. Списки</h2>
-  <p><strong>Маркированный список:</strong></p>
-  <ul>
-    <li>Яблоко</li>
-    <li>Банан</li>
-    <li>Апельсин</li>
-  </ul>
+<section id="tags">
+  <span class="section-label">раздел 3</span>
+  <h2>Часто используемые HTML-теги</h2>
+  <p>
+    Представь, что каждый тег — это отдельный тип блока интерфейса: панель инвентаря, карточка квеста,
+    окно настроек звука и т.п.
+  </p>
 
-  <p><strong>Нумерованный список:</strong></p>
-  <ol>
-    <li>Первый шаг</li>
-    <li>Второй шаг</li>
-    <li>Третий шаг</li>
-  </ol>
+  <h3>Теги структуры и оформления</h3>
+  <div class="tag-cards" id="tags">
+    <div class="tag-card">
+      <strong>&lt;div&gt;</strong>
+      <small>Блочный контейнер. Как отдельная панель инвентаря в игре.</small>
+      <pre><code>&lt;div class="inventory"&gt;
+  &lt;h2&gt;Инвентарь героя&lt;/h2&gt;
+  &lt;p&gt;Ключ от подземелья Деспота.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tag-card">
+      <strong>&lt;span&gt;</strong>
+      <small>Строчный контейнер — подсветить часть текста (например, редкий предмет).</small>
+      <pre><code>&lt;p&gt;Выпал предмет:
+  &lt;span class="legendary"&gt;Меч Криперов&lt;/span&gt;
+&lt;/p&gt;</code></pre>
+    </div>
+
+    <div class="tag-card">
+      <strong>&lt;header&gt;</strong>
+      <small>Шапка страницы или раздела — как верхняя панель меню игры.</small>
+      <pre><code>&lt;header&gt;
+  &lt;h1&gt;Меню Baldur's Gate&lt;/h1&gt;
+&lt;/header&gt;</code></pre>
+    </div>
+
+    <div class="tag-card">
+      <strong>&lt;footer&gt;</strong>
+      <small>Подвал — как панель с копирайтом и версиями патча.</small>
+      <pre><code>&lt;footer&gt;
+  &lt;p&gt;v1.0. Патч: «Stardew Valley Guide».&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+    </div>
+  </div>
+
+  <h3>Семантические теги</h3>
+  <div class="tag-cards">
+    <div class="tag-card">
+      <strong>&lt;nav&gt;</strong>
+      <small>Навигация — как меню выбора: «Новая игра», «Продолжить», «Настройки».</small>
+      <pre><code>&lt;nav&gt;
+  &lt;a href="#isaac"&gt;Isaac&lt;/a&gt;
+  &lt;a href="#minecraft"&gt;Minecraft&lt;/a&gt;
+  &lt;a href="#stardew"&gt;Stardew Valley&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+    </div>
+    <div class="tag-card">
+      <strong>&lt;main&gt;</strong>
+      <small>Основной контент страницы — сам «игровой экран».</small>
+      <pre><code>&lt;main&gt;
+  &lt;h2&gt;Гайд по крафту&lt;/h2&gt;
+  &lt;p&gt;Как сделать алмазную броню в Minecraft.&lt;/p&gt;
+&lt;/main&gt;</code></pre>
+    </div>
+    <div class="tag-card">
+      <strong>&lt;section&gt;</strong>
+      <small>Смысловой раздел — например, блок «Квесты».</small>
+      <pre><code>&lt;section id="quests"&gt;
+  &lt;h2&gt;Активные квесты&lt;/h2&gt;
+&lt;/section&gt;</code></pre>
+    </div>
+    <div class="tag-card">
+      <strong>&lt;article&gt;</strong>
+      <small>Самостоятельный материал — отдельный гайд по игре.</small>
+      <pre><code>&lt;article&gt;
+  &lt;h2&gt;Как пережить первую ночь в Minecraft&lt;/h2&gt;
+  &lt;p&gt;Пару советов...&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+    </div>
+  </div>
+
+  <h3>Теги для подсказок и сокращений</h3>
+  <p>
+    Тег <code>&lt;abbr&gt;</code> помогает показывать расшифровку сокращения при наведении,
+    как всплывающий тултип.
+  </p>
+  <pre><code>&lt;p&gt;
+  &lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;
+  — язык разметки.
+&lt;/p&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <p>
+      <abbr title="HyperText Markup Language">HTML</abbr>
+      — язык разметки.
+    </p>
+  </div>
 </section>
 
-<section>
-  <h2>4. Ссылки и изображения</h2>
-  <p><a href="https://example.com" target="_blank">Это ссылка на сайт Example</a></p>
-  <p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/HTML5_logo_and_wordmark.svg"
-          alt="Логотип HTML5" width="100"></p>
-  <pre>
-&lt;a href="https://example.com"&gt;Ссылка&lt;/a&gt;
-&lt;img src="cat.jpg" alt="Кошка"&gt;
-  </pre>
+<section id="lists">
+  <span class="section-label">раздел 4</span>
+  <h2>Списки: примеры на играх</h2>
+
+  <h3>Маркированный список любимых игр</h3>
+  <pre><code>&lt;ul&gt;
+  &lt;li&gt;The Binding of Isaac&lt;/li&gt;
+  &lt;li&gt;Baldur's Gate 3&lt;/li&gt;
+  &lt;li&gt;Minecraft&lt;/li&gt;
+  &lt;li&gt;Stardew Valley&lt;/li&gt;
+  &lt;li&gt;Despot's Game&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <ul>
+      <li>The Binding of Isaac</li>
+      <li>Baldur's Gate 3</li>
+      <li>Minecraft</li>
+      <li>Stardew Valley</li>
+      <li>Despot's Game</li>
+    </ul>
+  </div>
+
+  <h3>Нумерованный список шагов</h3>
+  <pre><code>&lt;ol&gt;
+  &lt;li&gt;Собрать дерево в Minecraft.&lt;/li&gt;
+  &lt;li&gt;Скрафтить верстак.&lt;/li&gt;
+  &lt;li&gt;Сделать каменные инструменты.&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <ol>
+      <li>Собрать дерево в Minecraft.</li>
+      <li>Скрафтить верстак.</li>
+      <li>Сделать каменные инструменты.</li>
+    </ol>
+  </div>
+
+  <h3>Список терминов</h3>
+  <pre><code>&lt;dl&gt;
+  &lt;dt&gt;Roguelike&lt;/dt&gt;
+  &lt;dd&gt;Жанр, в котором каждый забег уникален (например, Isaac или Despot's Game).&lt;/dd&gt;
+
+  &lt;dt&gt;RPG&lt;/dt&gt;
+  &lt;dd&gt;Ролевая игра с прокачкой персонажа (Baldur's Gate).&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <dl>
+      <dt>Roguelike</dt>
+      <dd>Жанр, в котором каждый забег уникален (например, Isaac или Despot's Game).</dd>
+      <dt>RPG</dt>
+      <dd>Ролевая игра с прокачкой персонажа (Baldur's Gate).</dd>
+    </dl>
+  </div>
 </section>
 
-<section>
-  <h2>5. Таблица</h2>
-  <table border="1" cellpadding="5">
-    <tr><th>Имя</th><th>Возраст</th></tr>
-    <tr><td>Анна</td><td>22</td></tr>
-    <tr><td>Иван</td><td>25</td></tr>
+<section id="links">
+  <span class="section-label">раздел 5</span>
+  <h2>Ссылки, изображения и подписи</h2>
+
+  <h3>Ссылка на вики по игре</h3>
+  <pre><code>&lt;a href="https://bindingofisaacrebirth.fandom.com"
+   target="_blank"
+   title="Откроется в новой вкладке"&gt;
+  Вики по The Binding of Isaac
+&lt;/a&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <a href="https://bindingofisaacrebirth.fandom.com" target="_blank" title="Откроется в новой вкладке">
+      Вики по The Binding of Isaac
+    </a>
+  </div>
+
+  <h3>Изображение с подписью (иконка предмета)</h3>
+  <pre><code>&lt;figure&gt;
+  &lt;img src="pixel-sword.png"
+       alt="Пиксельный меч как в Minecraft"
+       width="120"&gt;
+  &lt;figcaption&gt;Рис. 1. Меч для похода в пещеры&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ (если бы картинка была в папке):</div>
+    <figure>
+      <div style="width:120px;height:80px;border-radius:6px;background:#e5e7ff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:#4b5563;">
+        pixel-sword.png
+      </div>
+      <figcaption>Рис. 1. Меч для похода в пещеры</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="table">
+  <span class="section-label">раздел 6</span>
+  <h2>Таблицы</h2>
+  <p>Пример таблицы с данными по разным играм:</p>
+
+  <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Игра&lt;/th&gt;
+      &lt;th&gt;Жанр&lt;/th&gt;
+      &lt;th&gt;Сложность&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;The Binding of Isaac&lt;/td&gt;&lt;td&gt;Roguelike&lt;/td&gt;&lt;td&gt;Высокая&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Minecraft&lt;/td&gt;&lt;td&gt;Песочница&lt;/td&gt;&lt;td&gt;Зависит от режима&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Stardew Valley&lt;/td&gt;&lt;td&gt;Ферма&lt;/td&gt;&lt;td&gt;Низкая&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Игра</th>
+          <th>Жанр</th>
+          <th>Сложность</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>The Binding of Isaac</td><td>Roguelike</td><td>Высокая</td></tr>
+        <tr><td>Minecraft</td><td>Песочница</td><td>Зависит от режима</td></tr>
+        <tr><td>Stardew Valley</td><td>Ферма</td><td>Низкая</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="forms">
+  <span class="section-label">раздел 7</span>
+  <h2>Формы: пример анкеты игрока</h2>
+
+  <p>Полноценный пример формы с текстовыми полями, выбором города, радиокнопками и чекбоксом.</p>
+
+  <pre><code>&lt;form&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Профиль игрока&lt;/legend&gt;
+
+    &lt;label for="name"&gt;Никнейм:&lt;/label&gt;&lt;br&gt;
+    &lt;input id="name" type="text" placeholder="Введите ник"&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="email"&gt;E-mail:&lt;/label&gt;&lt;br&gt;
+    &lt;input id="email" type="email" placeholder="Введите e-mail"&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="password"&gt;Пароль:&lt;/label&gt;&lt;br&gt;
+    &lt;input id="password" type="password"&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="city"&gt;Город:&lt;/label&gt;&lt;br&gt;
+    &lt;select id="city"&gt;
+      &lt;option value=""&gt;Выберите город&lt;/option&gt;
+      &lt;option value="omsk"&gt;Омск&lt;/option&gt;
+      &lt;option value="moscow"&gt;Москва&lt;/option&gt;
+      &lt;option value="spb"&gt;Санкт-Петербург&lt;/option&gt;
+    &lt;/select&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;span class="badge"&gt;роль&lt;/span&gt;&lt;br&gt;
+    &lt;label&gt;&lt;input type="radio" name="role" value="student"&gt; Ученик&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;&lt;input type="radio" name="role" value="teacher"&gt; Преподаватель&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label&gt;&lt;input type="checkbox"&gt; Получать новости о патчах&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;button type="submit"&gt;Сохранить&lt;/button&gt;
+    &lt;button type="reset"&gt;Сбросить&lt;/button&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <form>
+      <fieldset>
+        <legend>Профиль игрока</legend>
+
+        <label for="name">Никнейм:</label><br>
+        <input id="name" type="text" placeholder="Введите ник"><br><br>
+
+        <label for="email">E-mail:</label><br>
+        <input id="email" type="email" placeholder="Введите e-mail"><br><br>
+
+        <label for="password">Пароль:</label><br>
+        <input id="password" type="password"><br><br>
+
+        <label for="city">Город:</label><br>
+        <select id="city">
+          <option value="">Выберите город</option>
+          <option value="omsk">Омск</option>
+          <option value="moscow">Москва</option>
+          <option value="spb">Санкт-Петербург</option>
+        </select><br><br>
+
+        <span class="badge">роль</span><br>
+        <label><input type="radio" name="role" value="student"> Ученик</label><br>
+        <label><input type="radio" name="role" value="teacher"> Преподаватель</label><br><br>
+
+        <label><input type="checkbox"> Получать новости о патчах</label><br><br>
+
+        <button type="submit">Сохранить</button>
+        <button type="reset">Сбросить</button>
+      </fieldset>
+    </form>
+  </div>
+</section>
+
+<section id="media">
+  <span class="section-label">раздел 8</span>
+  <h2>Медиа и время</h2>
+  <p>Пример аудио, видео и тега <code>&lt;time&gt;</code> для игровой страницы:</p>
+
+  <pre><code>&lt;audio controls&gt;
+  &lt;source src="bgm-stardew.mp3" type="audio/mpeg"&gt;
+  Ваш браузер не поддерживает аудио.
+&lt;/audio&gt;
+
+&lt;video width="320" controls&gt;
+  &lt;source src="isaac-run.mp4" type="video/mp4"&gt;
+  Ваш браузер не поддерживает видео.
+&lt;/video&gt;
+
+&lt;p&gt;Следующий ивент в деревне:
+  &lt;time datetime="2025-10-05T18:00"&gt;5 октября в 18:00&lt;/time&gt;.
+&lt;/p&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <audio controls>
+      <source src="bgm-stardew.mp3" type="audio/mpeg">
+      Ваш браузер не поддерживает аудио.
+    </audio>
+    <br>
+    <video width="320" controls>
+      <source src="isaac-run.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+    <p>Следующий ивент в деревне:
+      <time datetime="2025-10-05T18:00">5 октября в 18:00</time>.
+    </p>
+  </div>
+</section>
+
+<section id="selectors">
+  <span class="section-label">раздел 9</span>
+  <h2>CSS-селекторы: как выбрать элемент</h2>
+  <p>Селектор — это «адрес» элемента, к которому применяются стили.</p>
+
+  <h3>По тегу (типу)</h3>
+  <pre><code>p {
+  color: #111827;
+}</code></pre>
+
+  <h3>По классу</h3>
+  <pre><code>.game-card {
+  border: 2px solid #a855f7;
+  border-radius: 12px;
+  padding: 8px;
+}</code></pre>
+  <pre><code>&lt;div class="game-card"&gt;
+  &lt;h3&gt;Stardew Valley&lt;/h3&gt;
+  &lt;p&gt;Спокойная ферма про жизнь в деревне.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+  <div class="code-demo">
+    <div class="code-demo-title">РЕЗУЛЬТАТ:</div>
+    <div class="game-card" style="border:2px solid #a855f7;border-radius:12px;padding:8px;">
+      <h3 style="margin-top:0;">Stardew Valley</h3>
+      <p>Спокойная ферма про жизнь в деревне.</p>
+    </div>
+  </div>
+
+  <h3>По идентификатору (id)</h3>
+  <pre><code>#minecraft-guide {
+  background-color: #ecfccb;
+}</code></pre>
+  <pre><code>&lt;article id="minecraft-guide"&gt;
+  &lt;h2&gt;Гайд по выживанию в Minecraft&lt;/h2&gt;
+&lt;/article&gt;</code></pre>
+
+  <h3>Группировка селекторов</h3>
+  <pre><code>h1, h2, h3 {
+  font-family: "Segoe UI", sans-serif;
+}</code></pre>
+</section>
+
+<section id="combinators">
+  <span class="section-label">раздел 10</span>
+  <h2>CSS-комбинаторы: связи между элементами</h2>
+  <p>
+    Комбинаторы помогают уточнить, где именно находится элемент — как если бы ты искал
+    нужную кнопку только в меню паузы, а не по всей игре.
+  </p>
+
+  <h3>1. Потомок (пробел)</h3>
+  <p>
+    <code>main p</code> — все абзацы внутри <code>&lt;main&gt;</code>.
+  </p>
+  <pre><code>main p {
+  line-height: 1.6;
+}</code></pre>
+  <pre><code>&lt;main&gt;
+  &lt;p&gt;Этот абзац внутри main, стиль применится.&lt;/p&gt;
+&lt;/main&gt;
+
+&lt;p&gt;Этот абзац вне main, стиль не применится.&lt;/p&gt;</code></pre>
+
+  <div class="note">
+    Если написать <code>.class1.class2</code> без пробела — это не комбинатор,
+    а один элемент с двумя классами: <code>class="class1 class2"</code>.
+  </div>
+
+  <h3>2. Прямой ребёнок &gt;</h3>
+  <p>
+    <code>ul &gt; li</code> — только элементы <code>&lt;li&gt;</code>, которые являются
+    ПРЯМЫМИ детьми <code>&lt;ul&gt;</code>.
+  </p>
+  <pre><code>ul &gt; li {
+  list-style-type: square;
+}</code></pre>
+  <pre><code>&lt;ul&gt;
+  &lt;li&gt;Этот пункт — прямой ребёнок ul, стиль применится&lt;/li&gt;
+  &lt;li&gt;
+    Вложенный пункт:
+    &lt;ul&gt;
+      &lt;li&gt;А здесь уже другой уровень&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+  <h3>3. Соседний элемент +</h3>
+  <p>
+    <code>h2 + p</code> — первый абзац <code>&lt;p&gt;</code> сразу после
+    <code>&lt;h2&gt;</code>.
+  </p>
+  <pre><code>h2 + p {
+  font-weight: bold;
+}</code></pre>
+  <pre><code>&lt;h2&gt;Раздел&lt;/h2&gt;
+&lt;p&gt;Этот абзац сразу после h2, будет жирным.&lt;/p&gt;
+&lt;p&gt;А этот уже нет.&lt;/p&gt;</code></pre>
+
+  <h3>4. Все следующие соседи ~</h3>
+  <p>
+    <code>h2 ~ p</code> — все абзацы <code>&lt;p&gt;</code>, которые идут
+    после <code>&lt;h2&gt;</code> на том же уровне вложенности.
+  </p>
+  <pre><code>h2 ~ p {
+  color: #6f42c1;
+}</code></pre>
+  <pre><code>&lt;h2&gt;Тема&lt;/h2&gt;
+&lt;p&gt;Абзац 1 после h2 — стиль есть.&lt;/p&gt;
+&lt;p&gt;Абзац 2 после h2 — стиль тоже есть.&lt;/p&gt;</code></pre>
+</section>
+
+<section id="css-props">
+  <span class="section-label">раздел 11</span>
+  <h2>Основные CSS-свойства (без grid, flex и анимаций)</h2>
+
+  <p>Мини-таблица свойств, которых достаточно, чтобы сверстать простую страницу про любимую игру.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Свойство</th>
+        <th>Пример</th>
+        <th>Описание</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>color</code></td>
+        <td><code>color: #111827;</code></td>
+        <td>Цвет текста.</td>
+      </tr>
+      <tr>
+        <td><code>background-color</code></td>
+        <td><code>background-color: #fef9c3;</code></td>
+        <td>Цвет фона блока.</td>
+      </tr>
+      <tr>
+        <td><code>font-size</code></td>
+        <td><code>font-size: 18px;</code></td>
+        <td>Размер шрифта.</td>
+      </tr>
+      <tr>
+        <td><code>font-weight</code></td>
+        <td><code>font-weight: bold;</code></td>
+        <td>Толщина шрифта.</td>
+      </tr>
+      <tr>
+        <td><code>text-align</code></td>
+        <td><code>text-align: center;</code></td>
+        <td>Выравнивание текста.</td>
+      </tr>
+      <tr>
+        <td><code>margin</code></td>
+        <td><code>margin: 12px;</code></td>
+        <td>Внешний отступ блока.</td>
+      </tr>
+      <tr>
+        <td><code>padding</code></td>
+        <td><code>padding: 8px 12px;</code></td>
+        <td>Внутренний отступ блока.</td>
+      </tr>
+      <tr>
+        <td><code>border</code></td>
+        <td><code>border: 1px solid #e5e7eb;</code></td>
+        <td>Рамка вокруг элемента.</td>
+      </tr>
+      <tr>
+        <td><code>border-radius</code></td>
+        <td><code>border-radius: 12px;</code></td>
+        <td>Скруглённые углы.</td>
+      </tr>
+      <tr>
+        <td><code>width</code>, <code>height</code></td>
+        <td><code>width: 260px;</code></td>
+        <td>Размер блока.</td>
+      </tr>
+      <tr>
+        <td><code>display</code></td>
+        <td><code>display: inline-block;</code></td>
+        <td>Тип отображения (block, inline, inline-block...).</td>
+      </tr>
+      <tr>
+        <td><code>list-style-type</code></td>
+        <td><code>list-style-type: square;</code></td>
+        <td>Вид маркеров списка.</td>
+      </tr>
+      <tr>
+        <td><code>text-decoration</code></td>
+        <td><code>text-decoration: none;</code></td>
+        <td>Подчёркивание/перечёркивание текста.</td>
+      </tr>
+      <tr>
+        <td><code>box-shadow</code></td>
+        <td><code>box-shadow: 0 4px 10px rgba(15,23,42,0.15);</code></td>
+        <td>Тень вокруг блока.</td>
+      </tr>
+    </tbody>
   </table>
-  <pre>
-&lt;table border="1"&gt;
-  &lt;tr&gt;&lt;th&gt;Имя&lt;/th&gt;&lt;th&gt;Возраст&lt;/th&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;Анна&lt;/td&gt;&lt;td&gt;22&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;
-  </pre>
 </section>
 
-<section>
-  <h2>6. Формы</h2>
-  <form>
-    <label>Имя: <input type="text" placeholder="Введите имя"></label><br><br>
-    <label>Пароль: <input type="password"></label><br><br>
-    <label><input type="checkbox"> Согласен с условиями</label><br><br>
-    <button type="submit">Отправить</button>
-  </form>
-  <pre>
-&lt;form&gt;
-  &lt;input type="text" placeholder="Имя"&gt;
-  &lt;input type="password"&gt;
-  &lt;input type="checkbox"&gt;
-  &lt;button&gt;Отправить&lt;/button&gt;
-&lt;/form&gt;
-  </pre>
-</section>
-
-<section>
-  <h2>7. Медиа</h2>
-  <p>Аудио:</p>
-  <audio controls>
-    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
-  </audio>
-  <p>Видео:</p>
-  <video width="320" controls>
-    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-  </video>
-</section>
-
-<section>
-  <h2>8. Семантические теги</h2>
-  <p>Используй их для структуры:</p>
-  <ul>
-    <li><code>&lt;header&gt;</code> — шапка страницы</li>
-    <li><code>&lt;nav&gt;</code> — меню</li>
-    <li><code>&lt;main&gt;</code> — основной контент</li>
-    <li><code>&lt;section&gt;</code> — раздел</li>
-    <li><code>&lt;article&gt;</code> — самостоятельная статья</li>
-    <li><code>&lt;footer&gt;</code> — подвал</li>
-  </ul>
-</section>
+</main>
 
 <footer>
-  <p>© 2025. Учебная памятка по HTML.</p>
+  <p>© 2025. Учебная памятка по HTML и CSS.</p>
+  <p><small>Можно использовать как шпаргалку к своим сайтам про игры.</small></p>
 </footer>
+</div>
 
 </body>
 </html>
